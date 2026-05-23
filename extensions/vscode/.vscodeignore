@@ -1,0 +1,12 @@
+src/**
+tsconfig.json
+esbuild.js
+.eslintrc.json
+.gitignore
+node_modules/
+.vscode-test/
+.vscode/
+*.ts
+*.map
+yarn.lock
+bun.lock

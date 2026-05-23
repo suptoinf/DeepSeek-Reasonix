@@ -1,0 +1,108 @@
+{
+  "name": "reasonix-vscode",
+  "displayName": "Reasonix",
+  "description": "DeepSeek-native coding agent — cache-first, flash-first, tool-call repair. Integrates Reasonix directly into VS Code.",
+  "version": "0.49.0",
+  "publisher": "reasonix",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esengine/DeepSeek-Reasonix"
+  },
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#0F1419",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "reasonix",
+    "deepseek",
+    "ai",
+    "coding agent",
+    "code assistant"
+  ],
+  "activationEvents": [
+    "onCommand:reasonix.openTerminal",
+    "onCommand:reasonix.openNewTerminal",
+    "onCommand:reasonix.addFilepathToTerminal"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "reasonix.openTerminal",
+        "title": "Open Reasonix",
+        "icon": {
+          "light": "images/button-dark.svg",
+          "dark": "images/button-light.svg"
+        }
+      },
+      {
+        "command": "reasonix.openNewTerminal",
+        "title": "Open Reasonix in New Tab",
+        "icon": {
+          "light": "images/button-dark.svg",
+          "dark": "images/button-light.svg"
+        }
+      },
+      {
+        "command": "reasonix.addFilepathToTerminal",
+        "title": "Reasonix: Insert File Reference"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "reasonix.openNewTerminal",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "reasonix.openTerminal",
+        "title": "Open Reasonix",
+        "key": "ctrl+escape",
+        "mac": "cmd+escape",
+        "linux": "ctrl+escape"
+      },
+      {
+        "command": "reasonix.openNewTerminal",
+        "title": "Open Reasonix in New Tab",
+        "key": "ctrl+shift+escape",
+        "mac": "cmd+shift+escape",
+        "linux": "ctrl+shift+escape"
+      },
+      {
+        "command": "reasonix.addFilepathToTerminal",
+        "title": "Reasonix: Insert File Reference",
+        "key": "ctrl+alt+k",
+        "mac": "cmd+alt+k",
+        "linux": "ctrl+alt+k"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && node esbuild.js",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && node esbuild.js --production",
+    "check-types": "tsc --noEmit",
+    "test": "node --test test/**"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/vscode": "^1.94.0",
+    "esbuild": "^0.21.5",
+    "typescript": "^5.6.3"
+  }
+}
